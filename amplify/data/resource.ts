@@ -13,9 +13,9 @@ export const getStructuredOutputFromLangchainFunction = defineFunction({
   timeoutSeconds: 120,
   environment: {
     // MODEL_ID: 'us.anthropic.claude-3-5-sonnet-20240620-v1:0'
-    // MODEL_ID: 'us.anthropic.claude-3-5-haiku-20241022-v1:0'
+    MODEL_ID: 'us.anthropic.claude-3-5-haiku-20241022-v1:0'
     // MODEL_ID: 'us.anthropic.claude-3-sonnet-20240229-v1:0'
-    MODEL_ID: 'us.anthropic.claude-3-haiku-20240307-v1:0'
+    // MODEL_ID: 'us.anthropic.claude-3-haiku-20240307-v1:0'
   },
 });
 
@@ -25,11 +25,12 @@ export const productionAgentFunction = defineFunction({
   timeoutSeconds: 900,
   environment: {
     // STRUCTURED_OUTPUT_MODEL_ID: 'amazon.nova-lite-v1:0',
-    STRUCTURED_OUTPUT_MODEL_ID: 'us.anthropic.claude-3-haiku-20240307-v1:0',
-    // MODEL_ID: 'us.anthropic.claude-3-5-sonnet-20240620-v1:0'
-    // MODEL_ID: 'us.anthropic.claude-3-5-haiku-20241022-v1:0'
-    MODEL_ID: 'us.anthropic.claude-3-sonnet-20240229-v1:0',
-    // MODEL_ID: 'us.anthropic.claude-3-haiku-20240307-v1:0'
+    // STRUCTURED_OUTPUT_MODEL_ID: 'us.anthropic.claude-3-haiku-20240307-v1:0',
+    STRUCTURED_OUTPUT_MODEL_ID: 'us.anthropic.claude-3-5-haiku-20241022-v1:0',
+    MODEL_ID: 'us.anthropic.claude-3-5-sonnet-20240620-v1:0',
+    // MODEL_ID: 'us.anthropic.claude-3-5-haiku-20241022-v1:0',
+    // MODEL_ID: 'us.anthropic.claude-3-sonnet-20240229-v1:0',
+    // MODEL_ID: 'us.anthropic.claude-3-haiku-20240307-v1:0',
     // MODEL_ID: 'us.amazon.nova-pro-v1:0',
     // MODEL_ID: 'amazon.nova-lite-v1:0'
     FILE_PROCESSING_CONCURRENCY: '10'
@@ -42,9 +43,9 @@ export const planAndExecuteAgentFunction = defineFunction({
   entry: '../functions/planAndExecuteAgent/index.ts',
   timeoutSeconds: 900,
   environment: {
-    // MODEL_ID: 'us.anthropic.claude-3-5-sonnet-20240620-v1:0'
+    MODEL_ID: 'us.anthropic.claude-3-5-sonnet-20240620-v1:0'
     // MODEL_ID: 'us.anthropic.claude-3-5-haiku-20241022-v1:0'
-    MODEL_ID: 'us.anthropic.claude-3-sonnet-20240229-v1:0'
+    // MODEL_ID: 'us.anthropic.claude-3-sonnet-20240229-v1:0'
     // MODEL_ID: 'us.anthropic.claude-3-haiku-20240307-v1:0'
   },
   runtime: 20
