@@ -361,9 +361,11 @@ export function maintenanceAgentBuilder(scope: Construct, props: AgentProps) {
     // Add custom policy to the Agent role
     bedrockAgentRole.attachInlinePolicy(customAgentPolicy);
 
-    // Add tags to all resources in this scope
-    cdk.Tags.of(scope).add('Agent', maintTags.Agent);
-    cdk.Tags.of(scope).add('Model', maintTags.Model);
+    // Add tags to all resources in this scope 
+    // these tags cause CDK/CF to create a new OpenSearch Serverless(OSS) collection when we change the Model and CF throws this error..
+    // CloudFormation cannot update a stack when a custom-named resource requires replacing
+    // cdk.Tags.of(scope).add('Agent', maintTags.Agent);
+    // cdk.Tags.of(scope).add('Model', maintTags.Model);
 
     //Add an agent alias to make the agent callable
     const maintenanceAgentAlias = new bedrock.CfnAgentAlias(scope, 'maintenance-agent-alias', {
