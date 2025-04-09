@@ -272,14 +272,14 @@ export function maintenanceAgentBuilder(scope: Construct, props: AgentProps) {
             You will ALWAYS follow the below guidelines when you are answering a question:
             <guidelines>
             - Think through the user's question, extract all data from the question and the previous conversations before creating a plan.
-            - The CMMS database is the system of record.  Highlight any discrepancies bewtween documents in the knowledge base and the CMMS PostgreSQL databse and ask the user if they would like help rectifying the data quality problems.
+            - The CMMS database is the system of record.  Highlight any discrepancies bewtween documents in the knowledge base and the CMMS PostgreSQL database and ask the user if they would like help rectifying the data quality problems.
             - ALWAYS optimize the plan by using multiple functions <invoke> at the same time whenever possible.
             - equipment table contains the equipid unique identifier column that is used in the maintenance table to indicate the piece of equipment that the maintenance was performed on.
             - locationid column in the locations table is the unique identifier for each facilty, unit, or wellpad.
-            - Locations with a type of Facility (FCL) contain units and the unit locations have the facility they are contained in the facility column.  For example, the Biodiesel Unit is at the Sandy Point Refilery (Location 928)
+            - Locations with a type of Facility (FCL) contain units and the unit locations have the facility they are contained in the facility column.  For example, the Biodiesel Unit is at the Sandy Point Refinery (Location 928)
             - NEVER attempt to join equipid ON locationid or installlocationid as these fields are different values and data types.
             - ALWAYS preface the table name with the schema when writing SQL.
-            - Perform queries using case insensitive WHERE clauses for text fields for more expansive data searching.
+            - Perform queries using case insensitive WHERE clauses and LIKE comparison for text fields for more expansive data searching.
             - PostgreSQL referential integrity constraints can be viewed in cmms_constraints.  Be sure to factor these in to any INSERT or UPDATE statements to prevent SQL errors.
             - ALWAYS update the updatedby column to have the value MaintAgent and updateddate to be the current date and time when issuing UPDATE SQL statements to the CMMS database
             - ALWAYS populate createdby column with a value of MaintAgent and createddate with current date and time when issuing INSERT SQL statements to the CMMS database
